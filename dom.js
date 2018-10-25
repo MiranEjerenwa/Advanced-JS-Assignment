@@ -1,5 +1,6 @@
 const $ = function (selector) {
   const nodeList = document.querySelectorAll(selector);
+  
 
   const text = function(content){
     for (let i = 0; i < nodeList.length; i++) {
@@ -63,7 +64,19 @@ const $ = function (selector) {
     }
   }
 
+const hide = function() {
+  for (let i = 0; i < nodeList.length; i++) {
+    nodeList[i].style.display='none';}
+}
+const render = function() {
+  for (let i = 0; i < nodeList.length; i++) {
+
+    nodeList[i].style.display='';}
+}
+
   return {
+    hide: hide,
+    render: render,
     text: text,
     html: html,
     addClass: addClass,
