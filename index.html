@@ -9,18 +9,27 @@
 </head>
 
 <body>
-  <header>
+  <header class = 'sidebar'>
+    <li id="navItems" style="flex: content; flex-direction: column;">
+      <ol>
     <button id='view'>View</button>
     <button id ='add'>Add</button>
+    <button id='verify'>Verify</button>
+    <button id ='update'>Update</button>
+  </ol>
+  </li>
   </header>
   <div class='content'>
-   <div class='view pane' style="display:none;"></div>
-   <div class = 'add pane' style="display:none;">
-   <input class = 'name' type = 'text' required>
-    <input class = 'officeNumber' type = 'text' required>
-    <input class = "phoneNumber" type="text" required>
-    <button class = submit>Submit</button>
+   <div class='view pane' style='display:none;'></div>
+   <div class = 'add pane' style='display:none;'>
+      <input class = 'name' type = 'text' required>
+       <input class = 'officeNumber' type = 'text' required>
+      <input class = "phoneNumber" type="text" required>
+     <button class = 'addItem'>Submit</button>
+     
   </div>
+  <div class='verify pane' style="display:none;"></div>
+  <div class='navItems' style="display:none;"></div>
   </div>
   <script src="dom.js"></script>
   <script src="employeeList.js"></script>

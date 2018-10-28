@@ -74,6 +74,12 @@ const render = function() {
     nodeList[i].style.display='';}
 }
 
+const css = function (cssProperty, value) {
+  for (let i = 0; i < nodeList.length; i++) {
+    nodeList[i].style[cssProperty] = value;
+  }
+}
+
   return {
     hide: hide,
     render: render,
@@ -86,6 +92,7 @@ const render = function() {
     append: append,
     prepend: prepend,
     on: on,
-    val: val
+    val: val,
+    css: css
   };
 }
