@@ -1,7 +1,8 @@
+// function to dynamically hide all panes
 const hideAll = function () {
     $('.pane').hide();
-    $('.pane').css('background-color: black');
     }
+    // function to dynamically allow revealing each pane
     const view=function() { 
     hideAll();
     let data='';
@@ -17,6 +18,7 @@ const hideAll = function () {
     const showAdd = function () {
     hideAll();
     $('.add').render ();
+    $('.view').render ();
     }
     const showVerify = function () {
         hideAll();
@@ -30,14 +32,25 @@ const hideAll = function () {
             hideAll();
             $('.delete').render ();
             }
+
+// Functions to add an employee
+const itemAdd = function () {
+
+    const theName = $('.name').val();
+    const officeNum = $('.officeNumber').val();
+    const thePhoneNum = $('.phoneNumber').val();
+    Console.log(val);
+
+}
 //     // styles
 // $('.sidebar').css('backgound','blue');
 // $('.content').css('background-color', 'blue');
 
 
-// listeners
+// listeners to call each function
 $('#view').on('click', view);
 $('#add').on('click', showAdd);
 $('#verify').on('click', showVerify);
 $('#update').on('click', showUpdate);
 $('#delete').on('click', showDelete);
+
