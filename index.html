@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hospital</title>
+  
 </head>
-
 <body>
-  <header class = 'sidebar'>
-    <li id="navItems" style="flex: content; flex-direction: column;">
-      <ol>
-    <button id='view'>View</button>
-    <button id ='add'>Add</button>
-    <button id='verify'>Verify</button>
-    <button id ='update'>Update</button>
-  </ol>
+  <header class = 'sidebar' style="display: inline-grid; float: left; background-color: black; align-content: center; width: 150px; height: 650px;">
+    <li id="navItems" style="display: inline-grid; float: left; cursor: pointer;">
+      <ul style="display: inline-grid; float: left;">
+    <p id='view' style="color:beige;">View</p>
+    <p id ='add' style="color:beige;">Add</p>
+    <p id='verify' style="color:beige;" >Verify</p>
+    <p id ='update' style="color:beige;">Update</p>
+    <p id ='delete' style="color:beige;">Delete</p>
+  </ul>
   </li>
   </header>
-  <div class='content'>
+  <div class='content' style="display:block; margin-left:200px;">
    <div class='view pane' style='display:none;'></div>
    <div class = 'add pane' style='display:none;'>
       <input class = 'name' type = 'text' required>
        <input class = 'officeNumber' type = 'text' required>
-      <input class = "phoneNumber" type="text" required>
-     <button class = 'addItem'>Submit</button>
-     
+      <input class = 'phoneNumber' type="text" required>
+     <button class = 'addItem' id = 'addItem'>Submit</button>
   </div>
-  <div class='verify pane' style="display:none;"></div>
-  <div class='navItems' style="display:none;"></div>
+
+  <div class='verify pane' style="display:none;">
+    <input class = 'name' type = 'text' required>
+    <button class = 'addItem' id = 'addItem'>Submit</button>
+  </div>
+  <div class='update pane' style='display:none;'>
+      <input class = 'name' type = 'text' required>
+      <button class = 'addItem' id = 'addItem'>Submit</button>
+  
+  </div>
+  <div class='delete pane' style='display:none;'>
+      <input class = 'name' type = 'text' required>
+      <button class = 'addItem' id = 'addItem'>Submit</button>
+  </div>
   </div>
   <script src="dom.js"></script>
   <script src="employeeList.js"></script>
