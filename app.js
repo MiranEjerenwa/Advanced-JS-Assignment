@@ -33,15 +33,37 @@ const hideAll = function () {
             $('.delete').render ();
             }
 
-// Functions to add an employee
-const itemAdd = function () {
+    // var itemAdd = $('.content').append('');
+var itemAdd = function () {
+    const newName = $('.name').val();
+    const newOfficeNumber = $('.officeNumber').val();
+    const newPhoneNumber = $('.phoneNumber').val();
+   items = `<div style = 'border: 0.5px solid gray; margin-bottom: 2.5px; width: 400px; line-height: 28px;'>${newName} 
+    <section>${newOfficeNumber}</section> 
+    <section>${newPhoneNumber}</section> </div>`;
 
-    const theName = $('.name').val();
-    const officeNum = $('.officeNumber').val();
-    const thePhoneNum = $('.phoneNumber').val();
-    Console.log(val);
-
+    // $('.view').html(items);
+    // employeeList.push(items);
+    // $('.view').render ();
+    $('.view').append(items);
+    employeeList.push(items);
+    $('.view').render ();
 }
+
+
+        
+
+// Functions to add an employee
+
+
+// const itemAdd = function () {
+
+//     const theName = $('.name').val();
+//     const officeNum = $('.officeNumber').val();
+//     const thePhoneNum = $('.phoneNumber').val();
+//     Console.log(val);
+
+// }
 //     // styles
 // $('.sidebar').css('backgound','blue');
 // $('.content').css('background-color', 'blue');
@@ -53,4 +75,5 @@ $('#add').on('click', showAdd);
 $('#verify').on('click', showVerify);
 $('#update').on('click', showUpdate);
 $('#delete').on('click', showDelete);
+$('#addItem').on('click', itemAdd);
 
