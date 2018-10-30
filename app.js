@@ -38,8 +38,8 @@ var itemAdd = function () {
     // Declare object to hold user input
     const newEmployee = {
         name: '',
-        officeNumber: '',
-        phoneNumber: ''
+        officeNum: 0,
+        phoneNum: ''
     };
     // collect user input
     const newName = $('.name').val();
@@ -48,8 +48,8 @@ var itemAdd = function () {
 
     // Add user input to declared object
     newEmployee.name = newName;
-    newEmployee.officeNumber = newOfficeNumber;
-    newEmployee.phoneNumber = newPhoneNumber;
+    newEmployee.officeNum = newOfficeNumber;
+    newEmployee.phoneNum = newPhoneNumber;
     // OR
     // items = `<div style = 'border: 0.5px solid gray; margin-bottom: 2.5px; width: 400px; line-height: 28px;'>${newName} 
     //  <section>${newOfficeNumber}</section> 
@@ -62,15 +62,43 @@ var itemAdd = function () {
     // $('.view').append(items);
     employeeList.push(newEmployee);//saying undefined??
 
+    alert(`${newEmployee.name} has been added !`);
+
     // clear input 
     $('.name').val('');
     $('.officeNumber').val('');
     $('.phoneNumber').val('');
    
-    render();
-};
+    // render();
+}
+// $('#searchItem').css('background-color', 'red');
 
+// function to verify employee
 
+const verifyEmp = function () {
+    //  user input
+    const nameVal = $('#verifyNameField').val();
+    let empStatus = false;
+    // Loop through employeeList and set the 'empStatus' to 'true' or 'false' based on userinput value.
+    for (let i = 0; i < employeeList.length; i++) {
+        if (employeeList[i].name === nameVal) {
+            empStatus = true;
+            break
+        } else {
+            empStatus = false;
+        }
+    }
+ 
+    // Based on booloean value of empStatus, alert user of  status.
+    if (empStatus == true) {
+        alert(`${nameVal} is one of us !`);
+    } else {
+        alert(`${nameVal} is NOT one of us !`);
+    }
+ 
+    // After performing our actions, clear the input values and re-render the list
+    $('#verifyNameField').val('');
+} 
 
 // function to delete employee
 
@@ -83,14 +111,42 @@ for (let i = 0; i < employeeList.length; i++) {
     if (employeeList[i].name === deleteName) {
         employeeList.splice(i, 1);
         existingEmployee = true;
+
+        alert(`${deleteName} has been removed !`);
+
+        // If employee is not on the list
+if (existingEmployee = false) {
+    alert (`'invald employee name, please enter a different name'`);
+    }
+        // clear input 
+        $('#delName').val('');
     }
 }
 
-// If employee is not on the list
-if (existingEmployee = false) {
-alert (`'invald employee data'`);
 }
+
+
+// function to update employeeList
+const updateRec = function () {
+    let existingEmployeetList = false;
+    // user input.
+    const nameVal = $('.name').val();
+    const officeVal = $('.officeNumber').val();
+    const phoneVal = $('.phoneNumber').val();
+    // If selected empoyee is on the list, update with new employee infomation.
+    for (let i = 0; i < employeeList.length; i++) {
+        if (employeeList[i].name === nameVal) {
+            employeeList[i].name = nameVal;
+            employeeList[i].officeNum = officeVal;
+            employeeList[i].phoneNum = phoneVal;
+            existingEmployeetList = true;
+        }
+    }
+    if (existingEmployeetList == false) {
+        alert (`'invald employee data'`);
+    }
 }
+ 
 //function to verify employee
 
 // let verifierImp;
@@ -120,3 +176,5 @@ $('#delete').on('click', showDelete);
 $('#addItem').on('click', itemAdd);
 // $('#searchItem').on('click', verifierImp);
 $('#searchItem').on('click', deleteRec);
+$('#fix').on('click', updateRec);
+$('#lookup').on('click', verifyEmp);
